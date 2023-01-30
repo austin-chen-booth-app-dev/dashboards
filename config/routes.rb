@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get("/", { :controller => "application", :action => "homepage" })
+  get("/", { :controller => "application", :action => "homepage" })
 
   # Forex
   get("/forex", { :controller => "currencies", :action => "first_currency" })
