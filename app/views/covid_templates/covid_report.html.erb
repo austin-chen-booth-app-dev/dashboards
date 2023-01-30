@@ -1,0 +1,29 @@
+<h1> <%= @date_string %> </h1>
+<p>Go <a href="/">back</a>.</p>
+
+<p> Increase in individuals with confirmed or probable COVID-19 per the expanded CSTE case definition of April 5th, 2020 <a href="https://wwwn.cdc.gov/nndss/conditions/coronavirus-disease-2019-covid-19/case-definition/2020/" target="_blank">approved by the CDC.</a> </p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Positive Increase</th>
+      <th>Total Test Results Increase</th>
+      <th>Percent of new tests comprised of new positive cases</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @state_info.each do |state, info| %> 
+      <tr>
+        <td> <%= info["state"] %> <a href="/covid/<%= info["state"] %>">More details</a></td>
+        <td> <%= info["positive_increase"] %> </td>
+        <td> <%= info["total_test_results_increase"] %> </td>
+        <td style="color:<%= info["style_color"] %>;"> <%= info["percentage_positive"] %> </td>
+      </tr>
+
+    <% end %>
+  </tbody> 
+</table>
+
+<p> Data from <a href="https://covidtracking.com/" target="_blank">The COVID Tracking Project</a>. </p>
