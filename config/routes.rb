@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # get("/", { :controller => "application", :action => "homepage" })
+
+  get("/forex", { :controller => "currencies", :action => "first_currency" })
+  get("/forex/:currency", { :controller => "currencies", :action => "specific_currency" })
+  get("/forex/:root_currency/:target_currency", { :controller => "currencies", :action => "currency_conversion" })
 end
